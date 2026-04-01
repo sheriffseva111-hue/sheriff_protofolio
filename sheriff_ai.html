@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheriff | Full Stack Developer</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="img/jpg" href="WhatsApp Image 2026-02-23 at 11.40.27 AM.jpeg" />
+  <style>
+    :root {
+      --bg: #292c32;
+      --text: #ffffff;
+      --primary: #6366f1;
+      --card: #1e293b;
+    }
+
+    .light {
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .toggle {
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* flex-direction: column; */
+    }
+
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      /* box shape initially */
+      position: fixed;
+      transition: all 1.2s ease;
+      object-fit: cover;
+    }
+
+    .top-right {
+      width: 250px;
+      height: 250px;
+      top: 100px;
+      right: 20px;
+      border-radius: 50%;
+      /* becomes round on scroll */
+    }
+
+    h1 {
+      font-size: 3rem;
+      position: absolute;
+      left: 190px;
+      top: 280px;
+    }
+
+    .typing {
+      color: var(--primary);
+      margin-top: 10px;
+      position: absolute;
+      left: 225px;
+      top: 330px;
+    }
+
+    section {
+      padding: 100px 50px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.6s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .project img {
+      width: 30px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+  .mail{
+    background-color: #cccdf1;
+    width: 280px;
+    border-radius: 30px;
+    padding: 10px;
+  }
+  .git{
+     background-color: #cccdf1;
+    width: 330px;
+    border-radius: 30px;
+    padding: 10px;
+  }
+  
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div>Sheriff</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="toggle">🌙</div>
+  </nav>
+
+  <div class="hero">
+    <img src="WhatsApp Image 2026-02-03 at 11.07.46 AM.jpeg" class="profile-img" id="profile">
+    <h1>Hi, I'm Sheriff</h1>
+    <h2 class="typing" id="typing"></h2>
+  </div>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p id="aboutText"></p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card">HTML, CSS, JavaScript</div>
+    <div class="card">React</div>
+    <div class="card">MongoDB</div>
+    <div class="card">python</div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card project">
+      <img src="https://png.pngtree.com/png-vector/20190226/ourmid/pngtree-vector-portfolio-icon-png-image_705750.jpg" height="30px" >
+      <p>Modern Portfolio Website</p>
+    </div>
+    <div class="card project">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png" height="30px">
+      <p>Amazon UI Clone</p>
+    </div>
+    <div class="card project">
+      <img src="https://png.pngtree.com/png-clipart/20190924/original/pngtree-atm-machine-icon-in-trendy-style-isolated-background-png-image_4829806.jpg" height="30px">
+      <p>atm withdrawel</p>
+    </div>
+    <div class="card project">
+      <img src="https://wmstatic.global.ssl.fastly.net/ml/7170625-f-c0bcc280-abf2-4de8-b367-e5e4f9abe776.png?width=424&height=916" height="30px">
+      <p>clone iphone front page</p>
+    </div>
+    <div class="card project">
+      <img src="https://png.pngtree.com/png-clipart/20221028/original/pngtree-blood-icon-png-image_8736535.png" height="30px">
+      <p>hemoglobin level finder</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <a href="https://mail.google.com/mail/u/2/#inbox?compose=new"> <p class="mail">Email: sheriffseva111@email.com</p></a><br>
+    <a href="https://github.com/sheriffseva111-hue"><p class="git">GitHub: github.com/sheriffseva111.hue</p></a>
+  </section>
+
+  <script>
+    const profile = document.getElementById("profile");
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+
+      // Image move
+      if (window.scrollY > 100) {
+        profile.classList.add("top-right");
+      } else {
+        profile.classList.remove("top-right");
+      }
+
+      // Section animation
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          sec.classList.add("show");
+        }
+      });
+
+      // Active nav
+      sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute("id");
+
+        if (top >= offset && top < offset + height) {
+          navLinks.forEach(link => link.classList.remove("active"));
+          document.querySelector("nav a[href*=" + id + "]").classList.add("active");
+        }
+      });
+    });
+
+    // Dark mode toggle
+    const toggle = document.querySelector(".toggle");
+    toggle.onclick = () => {
+      document.body.classList.toggle("light");
+    };
+
+    // Typing effect
+    const text = ["Full Stack Developer", "Frontend Developer", "Python Specialist"];
+    let i = 0, j = 0;
+    const typing = document.getElementById("typing");
+
+    function type() {
+      if (j < text[i].length) {
+        typing.innerHTML += text[i].charAt(j);
+        j++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 1500);
+      }
+    }
+
+    function erase() {
+      if (j > 0) {
+        typing.innerHTML = text[i].substring(0, j - 1);
+        j--;
+        setTimeout(erase, 50);
+      } else {
+        i = (i + 1) % text.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    type();
+
+    // About typing effect
+    const aboutContent = "I am a dedicated and results-driven Full Stack Developer with a strong foundation in building scalable, high-performance web applications. I specialize in developing clean, efficient, and maintainable code across both frontend and backend technologies. With expertise in JavaScript, HTML, and CSS, I focus on delivering seamless user experiences and robust system architecture. I am passionate about continuous learning and actively explore emerging technologies such as blockchain to stay aligned with industry advancements. I aim to contribute to innovative projects, collaborate with dynamic teams, and deliver impactful solutions in a professional environment.";
+    let k = 0;
+    const aboutText = document.getElementById("aboutText");
+
+    function typeAbout() {
+      if (k < aboutContent.length) {
+        aboutText.innerHTML += aboutContent.charAt(k);
+        k++;
+        setTimeout(typeAbout, 15);
+      }
+    }
+
+    // trigger when section visible
+    window.addEventListener("scroll", () => {
+      const aboutSection = document.getElementById("about");
+      const top = aboutSection.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100 && aboutText.innerHTML === "") {
+        typeAbout();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
