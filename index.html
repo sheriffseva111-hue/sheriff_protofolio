@@ -69,7 +69,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /* flex-direction: column; */
+      text-align: left;
+      padding: 0 50px;
+    }
+
+    .hero-content {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
     }
 
     .profile-img {
@@ -78,32 +89,100 @@
       border-radius: 12px;
       /* box shape initially */
       position: fixed;
-      transition: all 1.2s ease;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       object-fit: cover;
+      z-index: 1001;
     }
 
     .top-right {
-      width: 250px;
-      height: 250px;
-      top: 100px;
-      right: 20px;
+      width: 200px;
+      height: 200px;
+      top: 80px;
+      right: 50px;
       border-radius: 50%;
       /* becomes round on scroll */
     }
 
     h1 {
-      font-size: 3rem;
-      position: absolute;
-      left: 190px;
-      top: 280px;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      margin-left: 250px;
+      transition: 0.3s;
+    }
+
+    .typing-container {
+      margin-left: 250px;
+      margin-top: 10px;
+      min-height: 1.6em;
     }
 
     .typing {
       color: var(--primary);
-      margin-top: 10px;
-      position: absolute;
-      left: 225px;
-      top: 330px;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      font-weight: 600;
+    }
+
+    .typing::after {
+      content: "|";
+      animation: blink 0.7s infinite;
+      margin-left: 5px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+        font-size: 0.9rem;
+      }
+      
+      nav a {
+        margin: 0 5px;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .hero-content {
+        align-items: center;
+      }
+
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        position: static; /* Let it flow on mobile when at top */
+        margin-bottom: 20px;
+      }
+
+      /* Fix the fixed position when scrolled on mobile */
+      .profile-img.top-right {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        top: 15px;
+        right: 15px;
+        border-radius: 50%;
+        margin-bottom: 0;
+        z-index: 1100;
+      }
+
+      h1 {
+        margin-left: 0;
+        font-size: 2.2rem;
+      }
+
+      .typing-container {
+        margin-left: 0;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
     }
 
     section {
@@ -173,9 +252,13 @@
   </nav>
 
   <div class="hero">
-    <img src="WhatsApp Image 2026-02-03 at 11.07.46 AM.jpeg" class="profile-img" id="profile">
-    <h1>Hi, I'm Sheriff</h1>
-    <h2 class="typing" id="typing"></h2>
+    <div class="hero-content">
+      <img src="WhatsApp Image 2026-02-03 at 11.07.46 AM.jpeg" class="profile-img" id="profile">
+      <h1>Hi, I'm Sheriff</h1>
+      <div class="typing-container">
+        <span class="typing" id="typing"></span>
+      </div>
+    </div>
   </div>
 
   <section id="about">
@@ -261,10 +344,15 @@
     const toggle = document.querySelector(".toggle");
     toggle.onclick = () => {
       document.body.classList.toggle("light");
+      if (document.body.classList.contains("light")) {
+        toggle.innerHTML = "☀️";
+      } else {
+        toggle.innerHTML = "🌙";
+      }
     };
 
     // Typing effect
-    const text = ["Full Stack Developer", "Frontend Developer", "Python Specialist"];
+    const text = ["Full Stack Developer", "Frontend Developer AND", "Python Specialist"];
     let i = 0, j = 0;
     const typing = document.getElementById("typing");
 
